@@ -159,7 +159,9 @@ body {
   color: white;
 }
 
-
+.email a{
+  color: white;
+}
 .info-block .text {
   width: 100%;
   box-sizing: border-box;

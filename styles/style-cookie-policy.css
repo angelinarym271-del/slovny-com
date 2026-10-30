@@ -173,7 +173,9 @@ body {
   margin-bottom: 20px;
 }
 
-
+.email a{
+  color: white;
+}
 
 .text p {
   flex: 1;

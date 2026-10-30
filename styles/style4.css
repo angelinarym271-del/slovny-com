@@ -139,6 +139,9 @@ body {
   color: white;
 }
 
+.email a{
+  color: white;
+}
 
 /* ── TEST AREA ── */
 #dailyTestArea, #dailyResultArea {

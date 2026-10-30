@@ -142,7 +142,9 @@ body {
   border-top: 3px solid #555;
   margin-top: auto;
 }
-
+.email a{
+  color: white;
+}
 
 /* ===== LINKS ===== */
 .menu-item-link {

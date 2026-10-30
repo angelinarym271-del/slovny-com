@@ -202,6 +202,10 @@ body {
   padding: 20px;
 }
 
+.email a{
+  color: white;
+}
+
 #info-title {
   text-align: center;
   font-size: 32px;

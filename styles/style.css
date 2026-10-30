@@ -155,6 +155,10 @@ body {
   color: white;
 }
 
+.email a{
+  color: white;
+}
+
 /* ===== TEST DAY BTN ===== */
 .test-day-btn {
   position: fixed;

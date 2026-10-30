@@ -147,7 +147,9 @@ body {
   margin-top: auto;
 }
 
-
+.email a{
+  color: white;
+}
 /* ===== LINKS ===== */
 .menu-item-link {
   padding: 6px 10px;
