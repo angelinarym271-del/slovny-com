@@ -1,0 +1,769 @@
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-image: url(../images/Gemini_Generated_Image_ddenxbddenxbdden.png);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #111;
+  overflow-x: hidden;
+}
+
+
+/* ===== NAVBAR ===== */
+/* ЗАЛИШЕНО БЕЗ ЗМІН */
+.navbar {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 0 40px;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 14px;
+  z-index: 9999;
+}
+
+.menu-item {
+  position: relative;
+  font-size: clamp(13px, 3.5vw, 30px);
+  cursor: pointer;
+}
+
+.menu-item span {
+  padding: 6px 10px;
+}
+
+.menu-item:hover > span {
+  background: #f0f0f0;
+  border-radius: 8px;
+}
+
+.dropdown-box {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #fff;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  min-width: 180px;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+  padding: 0;
+  gap: 0;
+}
+
+.menu-item:hover .dropdown-box {
+  display: flex;
+}
+
+.drop-btn {
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #222;
+  font-size: 14px;
+  font-weight: 400;
+  transition: 0.15s;
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 0;
+  display: block;
+}
+
+.drop-btn:last-child {
+  border-bottom: none;
+}
+
+.drop-btn:hover {
+  background: #f5f5f5;
+  color: #111;
+}
+
+.logo {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logo img {
+  height: 45px;
+  width: auto;
+  display: block;
+}
+
+
+/* ===== WRAPPER ===== */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  align-items: center;
+}
+
+.test-box {
+  border-radius: 16px;
+  padding: 40px;
+  width: 90%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  margin-top: 20px;
+}
+
+
+/* ===== FOOTER ===== */
+.my-footer {
+  width: 100%;
+  min-height: 100px;
+  padding: 20px 15px;
+  background: #393636;
+  color: white;
+  text-align: center;
+  border-top: 3px solid #555;
+  margin-top: auto;
+}
+
+
+/* ===== LINKS ===== */
+.menu-item-link {
+  padding: 6px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #222;
+  display: block;
+  transition: 0.2s;
+  font-size: inherit;
+}
+
+.menu-item-link:hover {
+  background: #f0f0f0;
+}
+
+
+/* =========================================================
+   INFO BLOCK
+   ========================================================= */
+
+.info-block {
+  width: calc(100% - 40px);
+  max-width: 900px;
+
+  margin: 100px auto 20px;
+
+  padding: 20px;
+
+  background: #faf9f9;
+  border: 2px solid grey;
+}
+
+#info-title {
+  margin: 0 0 20px;
+
+  text-align: center;
+
+  font-size: 32px;
+  line-height: 1.25;
+}
+
+.info-block .text {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.text p {
+  flex: 1;
+  width: 100%;
+
+  margin: 0;
+
+  text-align: justify;
+  line-height: 1.6;
+
+  overflow-wrap: break-word;
+}
+
+.politics a {
+  color: white;
+}
+
+
+/* =========================================================
+   СЛОВНИК ЛЕКСИЧНИХ ПОМИЛОК
+   ========================================================= */
+
+.leksyka-wrapper {
+  width: calc(100% - 40px);
+  max-width: 900px;
+
+  margin: 40px auto;
+  padding: 0;
+}
+
+
+/* ---- "Книга" з двома колонками ---- */
+
+.leksyka-book {
+  position: relative;
+
+  width: 100%;
+
+  margin-top: 20px;
+
+  border-radius: 4px;
+
+  padding: 30px 40px;
+}
+
+
+/* ---- Заголовки колонок ---- */
+
+.leksyka-columns-header {
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+  gap: 0 30px;
+
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+
+  border-bottom: 2px solid #1e2a22;
+}
+
+.col-header {
+  min-width: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-weight: 700;
+  font-size: 15px;
+
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.col-header--right {
+  color: #2e7d32;
+}
+
+.col-header--wrong {
+  color: #b3261e;
+}
+
+
+/* ---- Колонки ---- */
+
+.leksyka-columns {
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+  gap: 0 30px;
+
+  position: relative;
+}
+
+
+/* ---- Центральний розділювач ---- */
+
+.leksyka-columns::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 50%;
+
+  width: 1px;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #d8cfb8 15%,
+    #d8cfb8 85%,
+    transparent
+  );
+}
+
+
+/* ---- Фрази ---- */
+
+.leksyka-phrase {
+  min-width: 0;
+
+  margin: 0;
+  padding: 9px 12px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 17px;
+  line-height: 1.4;
+
+  border-bottom: 1px dotted #eae4d4;
+
+  text-align: center;
+
+  overflow-wrap: anywhere;
+}
+
+.leksyka-phrase--correct {
+  color: #1e4620;
+  font-weight: 600;
+}
+
+.leksyka-phrase--wrong {
+  color: #8a2b24;
+
+  text-decoration: line-through;
+  text-decoration-color: rgba(179, 38, 30, 0.55);
+}
+
+
+.test-day-btn {
+  position: fixed;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 16px 30px;
+  background: white;
+  color: black;
+  width: 200px;
+  height: 120px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 14px;
+  border: 3px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: top 0.5s ease;
+  z-index: 10000;
+  background-image:
+    linear-gradient(white, white),
+    linear-gradient(90deg,
+      #ff0080,
+      #7928ca,
+      #2afadf,
+      #ff0080
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-size: 100% 100%, 200% 200%;
+  animation: floatSide 2s infinite alternate ease-in-out,
+             borderFlow 4s linear infinite;
+}
+
+@keyframes borderFlow {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.test-day-btn.show {
+  top: 150px;
+}
+
+@keyframes floatSide {
+  from { transform: translateX(-50%) translateY(0); }
+  to   { transform: translateX(-50%) translateY(8px); }
+}
+
+.test-day-btn:hover {
+  font-size: 28px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   1024px
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+   .navbar {
+    width: 90%;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .menu-item {
+    font-size: 24px;
+  }
+
+  .test-box {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .info-block {
+    width: calc(100% - 40px);
+
+    margin-top: 100px;
+
+    padding: 20px;
+  }
+
+  #info-title {
+    font-size: 28px;
+  }
+
+  .leksyka-wrapper {
+    width: calc(100% - 40px);
+
+    margin: 35px auto;
+  }
+
+  .leksyka-book {
+    padding: 28px 30px;
+  }
+
+  .leksyka-columns,
+  .leksyka-columns-header {
+    gap: 0 25px;
+  }
+
+  .leksyka-phrase {
+    font-size: 16px;
+  }
+}
+
+
+/* =========================================================
+   768px
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+.navbar {
+    width: 95%;
+    height: 50px;
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .menu-item {
+    font-size: 18px;
+  }
+
+  .logo img {
+    height: 32px;
+  }
+
+  .drop-btn {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .test-box {
+    width: calc(100% - 30px);
+
+    padding: 25px 20px;
+
+    margin-top: 15px;
+  }
+
+
+  /* INFO */
+
+  .info-block {
+    width: calc(100% - 30px);
+
+    margin: 90px auto 25px;
+
+    padding: 18px;
+  }
+
+  #info-title {
+    font-size: 24px;
+
+    margin-bottom: 16px;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .text p {
+    width: 100%;
+
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+
+  /* LEXYKA */
+
+  .leksyka-wrapper {
+    width: calc(100% - 30px);
+
+    margin: 30px auto;
+  }
+
+  .leksyka-book {
+    padding: 22px 18px;
+  }
+
+  .leksyka-columns,
+  .leksyka-columns-header {
+    gap: 0 18px;
+  }
+
+  .col-header {
+    font-size: 14px;
+  }
+
+  .leksyka-phrase {
+    font-size: 15px;
+
+    padding: 9px 8px;
+
+    line-height: 1.4;
+  }
+
+
+  /* FOOTER */
+
+  .my-footer {
+    min-height: 100px;
+
+    padding: 18px 15px;
+
+    font-size: 14px;
+  }
+}
+
+
+
+
+/* =========================================================
+   480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+   .navbar {
+    top: 20px;
+  }
+
+  .menu-item {
+    font-size: 16px;
+  }
+
+
+  .test-box {
+    width: calc(100% - 16px);
+
+    padding: 15px 8px;
+  }
+
+
+  /* INFO */
+
+  .info-block {
+    width: calc(100% - 16px);
+
+    margin: 70px auto 18px;
+
+    padding: 13px;
+  }
+
+  #info-title {
+    font-size: 19px;
+
+    line-height: 1.25;
+
+    margin-bottom: 12px;
+  }
+
+  .text p {
+    font-size: 13px;
+
+    line-height: 1.45;
+  }
+
+
+  /* LEXYKA */
+
+  .leksyka-wrapper {
+    width: calc(100% - 16px);
+
+    margin: 20px auto;
+  }
+
+  .leksyka-book {
+    padding: 15px 8px;
+  }
+
+  .leksyka-columns,
+  .leksyka-columns-header {
+    gap: 0 7px;
+  }
+
+  .col-header {
+    font-size: 11px;
+
+    letter-spacing: 0.02em;
+  }
+
+  .leksyka-phrase {
+    font-size: 13px;
+
+    padding: 7px 4px;
+
+    line-height: 1.3;
+  }
+
+
+  /* FOOTER */
+
+  .my-footer {
+    min-height: 90px;
+
+    padding: 15px 10px;
+
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   360px
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+.navbar {
+    top: 15px;
+    width: 95%;
+    height: 45px;
+    gap: 8px;
+    padding: 0 8px;
+  }
+
+  .menu-item {
+    font-size: 14px;
+  }
+
+  .logo img {
+    height: 24px;
+  }
+
+  .dropdown-box {
+    min-width: 140px;
+  }
+
+  .drop-btn {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .test-box {
+    width: calc(100% - 10px);
+
+    padding: 12px 5px;
+  }
+
+
+  /* INFO */
+
+  .info-block {
+    width: calc(100% - 10px);
+
+    margin: 65px auto 15px;
+
+    padding: 10px;
+  }
+
+  #info-title {
+    font-size: 16px;
+
+    line-height: 1.2;
+
+    margin-bottom: 10px;
+  }
+
+  .text p {
+    font-size: 12px;
+
+    line-height: 1.4;
+  }
+
+
+  /* LEXYKA */
+
+  .leksyka-wrapper {
+    width: calc(100% - 10px);
+
+    margin: 15px auto;
+  }
+
+  .leksyka-book {
+    padding: 12px 5px;
+  }
+
+  .leksyka-columns,
+  .leksyka-columns-header {
+    gap: 0 5px;
+  }
+
+  .col-header {
+    font-size: 10px;
+
+    letter-spacing: 0.01em;
+  }
+
+  .leksyka-phrase {
+    font-size: 12px;
+
+    padding: 6px 3px;
+
+    line-height: 1.25;
+  }
+
+
+  /* FOOTER */
+
+  .my-footer {
+    min-height: 90px;
+
+    padding: 12px 8px;
+
+    font-size: 12px;
+  }
+}

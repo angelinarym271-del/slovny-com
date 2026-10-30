@@ -1,0 +1,870 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-image: url(../images/Gemini_Generated_Image_ddenxbddenxbdden.png);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #111;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(700px, calc(100% - 24px)); /* адаптивна ширина замість фіксованої 700px */
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 0 40px;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 14px;
+  z-index: 9999;
+}
+.menu-item {
+  position: relative;
+  font-size: clamp(13px, 3.5vw, 30px);
+  cursor: pointer;
+}
+
+.menu-item span {
+  padding: 6px 10px;
+}
+
+.menu-item:hover > span {
+  background: #f0f0f0;
+  border-radius: 8px;
+}
+
+.dropdown-box {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #fff;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  min-width: 180px;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+  padding: 0;
+  gap: 0;
+}
+
+.menu-item:hover .dropdown-box {
+  display: flex;
+}
+
+.drop-btn {
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #222;
+  font-size: 14px;
+  font-weight: 400;
+  transition: 0.15s;
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 0;
+  display: block;
+}
+.drop-btn:last-child {
+  border-bottom: none;
+}
+
+.drop-btn:hover {
+  background: #f5f5f5;
+  color: #111;
+}
+
+.logo {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logo img {
+  height: 45px;
+  width: auto;
+  display: block;
+}
+
+.menu-item-link {
+  padding: 6px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #222;
+  display: block;
+  transition: 0.2s;
+  font-size: inherit; /* береться від .menu-item */
+}
+
+.menu-item-link:hover {
+  background: #f0f0f0;
+}
+
+/* ── WRAPPER ── */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  min-height: 100vh;
+  padding-top: clamp(70px, 14vw, 120px);
+  padding-bottom: 20px;
+}
+
+.test-box {
+  border-radius: 16px;
+  padding: clamp(8px, 2vw, 40px);
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  margin-top: 20px;
+}
+
+/* ── INFO BLOCK ── */
+.info-block {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #faf9f9;
+  border: 2px solid grey;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.info-block-text{
+  text-align: center;
+}
+.politics a{
+  color: white;
+}
+
+
+.info-block .text {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Десктоп і ноутбук: 2 колонки */
+@media (min-width: 769px) {
+  .info-block .text {
+    column-count: 2;
+    column-gap: 40px;
+    column-rule: 1px solid #ddd; /* можна прибрати, якщо не потрібна лінія між колонками */
+  }
+}
+
+/* Телефон: 1 колонка */
+@media (max-width: 768px) {
+  .info-block .text {
+    column-count: 1;
+  }
+}
+
+/* Щоб заголовки, списки, посилання не розривались посеред колонки */
+.info-block .text h2,
+.info-block .text ul,
+.info-block .text p {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+
+.info-block .text * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+/* ── FOOTER ── */
+.my-footer {
+  width: 100%;
+  height: 100px;
+  background: #393636;
+  color: white;
+  text-align: center;
+  border-top: 3px solid #555;
+  margin-top: auto;
+}
+
+/* ── APP ── */
+#app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(8px, 3vw, 16px);
+}
+
+/* ── TEST & RESULT BOX ── */
+#testArea, #resultArea {
+  width: 100%;
+  max-width: 700px;
+  background: white;
+  border-radius: 12px;
+  padding: clamp(8px, 2vw, 24px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 3vw, 20px);
+}
+
+/* ── START BUTTON ── */
+#startNMTTest {
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  font-size: clamp(15px, 3.5vw, 18px);
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 50px auto;
+  display: block;
+  transition: 0.2s;
+}
+
+#startNMTTest:hover {
+  background: #444;
+}
+
+/* ── TEST HEADER ── */
+#testHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#questionCounter {
+  font-size: clamp(12px, 2.5vw, 14px);
+  color: #555;
+}
+
+#timer {
+  font-size: clamp(14px, 3vw, 16px);
+  color: #f44336;
+}
+
+/* ── QUESTION BODY ── */
+#questionBody {
+  min-height: 200px;
+}
+
+.question-task {
+  font-size: clamp(14px, 3.5vw, 17px);
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 0 4px 0;
+}
+
+.question-text {
+  font-size: clamp(13px, 3vw, 15px);
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── OPTIONS ── */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.answer-btn {
+  width: 100%;
+  padding: clamp(10px, 2.5vw, 14px) clamp(12px, 3vw, 18px);
+  display: flex;
+  align-items: center;
+  border: 2px solid #dcdcdc;
+  border-radius: 12px;
+  background: white;
+  font-size: clamp(13px, 3vw, 15px);
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.answer-btn:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+.answer-btn.selected {
+  background: #e6f0ff;
+  border-color: #4a90e2;
+}
+
+/* ── TEST FOOTER ── */
+#testFooter {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#testFooter button {
+  flex: 1;
+  min-width: 0;
+  padding: clamp(8px, 2vw, 12px) clamp(4px, 2vw, 10px);
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: clamp(12px, 3vw, 15px);
+  transition: 0.2s;
+}
+
+#prevQuestionBtn {
+  background: #f0f0f0;
+  margin: 4px;
+  color: #222;
+}
+
+#prevQuestionBtn:hover { background: #e0e0e0; }
+
+#nextQuestionBtn {
+  background: #4caf50;
+  margin: 4px;
+  color: white;
+}
+
+#nextQuestionBtn:hover { background: #43a047; }
+
+#finishTestBtn {
+  background: #f44336;
+  margin: 4px;
+  color: white;
+}
+
+#finishTestBtn:hover { background: #e53935; }
+
+/* ── MATCHING ── */
+.matching-lists {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.matching-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.matching-list-item {
+  margin: 0;
+  font-size: clamp(13px, 3vw, 15px);
+  line-height: 1.5;
+}
+
+.matching-list-item b {
+  margin-right: 6px;
+}
+
+.matching-table {
+  border-collapse: collapse;
+  font-size: clamp(12px, 2.5vw, 14px);
+  margin: 0 auto 0 0;
+}
+
+.matching-table th {
+  background: #f0f0f0;
+  border: 2px solid #dcdcdc;
+  width: clamp(36px, 7vw, 48px);
+  height: clamp(36px, 7vw, 48px);
+  text-align: center;
+  font-weight: 700;
+  color: #333;
+  padding: 0;
+}
+
+.matching-table td {
+  border: 2px solid #dcdcdc;
+  width: clamp(36px, 7vw, 48px);
+  height: clamp(36px, 7vw, 48px);
+  text-align: center;
+  padding: 0;
+}
+
+.matching-row-num {
+  font-weight: 700;
+  color: #333;
+  background: #f0f0f0;
+  width: clamp(32px, 5vw, 40px) !important;
+}
+
+.matching-cell {
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.matching-cell:hover { background: #f5f5f5; }
+
+.matching-cell.selected {
+  background: #e6f0ff;
+  border-color: #4a90e2;
+}
+
+.matching-cell.selected::after {
+  content: "";
+  display: inline-block;
+  width: clamp(10px, 2.5vw, 14px);
+  height: clamp(10px, 2.5vw, 14px);
+  background: #4a90e2;
+  border-radius: 50%;
+}
+
+/* ── PASSAGES ── */
+.passages-box {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #dcdcdc;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.passage-row {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.passage-row:last-child {
+  border-bottom: none;
+}
+
+.passage-num {
+  min-width: 48px;
+  padding: 10px 0;
+  border-right: 1px solid #dcdcdc;
+  background: #f7f7f7;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.passage-num svg {
+  width: 24px;
+  height: 24px;
+}
+
+.passage-text {
+  margin: 0;
+  padding: 10px 14px;
+  font-size: clamp(13px, 3vw, 15px);
+  line-height: 1.6;
+  color: #222;
+}
+
+/* ── SVG ВІДПОВІДІ ── */
+.figures-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.figures-row svg {
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.answer-btn--svg {
+  justify-content: flex-start;
+  padding: 10px 16px;
+}
+
+/* ── RESULT ── */
+.result-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 0;
+}
+
+.result-box h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.result-main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.result-fraction {
+  font-size: clamp(36px, 10vw, 52px);
+  font-weight: 800;
+  color: #111;
+  line-height: 1;
+}
+
+.result-percent {
+  font-size: clamp(18px, 5vw, 28px);
+  font-weight: 600;
+  color: #4a90e2;
+  background: #e6f0ff;
+  padding: 6px 14px;
+  border-radius: 10px;
+}
+
+.result-details {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.task-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 15px auto;
+}
+.result-item {
+  flex: 1;
+  min-width: min(100%, 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: #f7f7f7;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: clamp(10px, 3vw, 16px);
+}
+
+.result-label {
+  font-size: clamp(11px, 2.5vw, 13px);
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.result-value {
+  font-size: clamp(20px, 5vw, 26px);
+  font-weight: 700;
+  color: #111;
+}
+
+.retry-btn {
+  width: 100%;
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  font-size: clamp(14px, 3.5vw, 16px);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: center;
+}
+
+.retry-btn:hover { background: #444; }
+
+/* ══════════════════════════════
+   АДАПТИВНІСТЬ
+══════════════════════════════ */
+
+/* ── ПЛАНШЕТ, LANDSCAPE / великі екрани (до 1024px) ── */
+@media (max-width: 1024px) {
+  .wrapper {
+    max-width: 92%;
+  }
+
+  .navbar {
+    width: min(700px, calc(100% - 32px));
+    gap: 20px;
+    padding: 0 24px;
+  }
+
+  .info-block {
+    max-width: 92%;
+  }
+
+  .test-box,
+  #testArea,
+  #resultArea {
+    max-width: 92%;
+  }
+}
+
+/* ── ПЛАНШЕТ, PORTRAIT (до 768px) ── */
+@media (max-width: 768px) {
+  #app {
+    align-items: flex-start;
+    padding-top: clamp(70px, 14vw, 90px);
+  }
+
+  .navbar {
+    gap: 12px;
+    padding: 0 16px;
+  }
+
+  .logo img {
+    height: 36px;
+  }
+
+  .logo {
+    left: 12px;
+  }
+
+  .matching-lists {
+    gap: 16px;
+  }
+}
+
+/* ── ВЕЛИКІ ТЕЛЕФОНИ / ФАБЛЕТИ (до 480px) ── */
+@media (max-width: 480px) {
+  #testHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .navbar {
+    top: 20px;
+    height: 50px;
+    gap: 8px;
+    padding: 0 10px;
+  }
+
+  .logo img {
+    height: 32px;
+  }
+
+  .logo {
+    left: 10px;
+  }
+
+  .info-block {
+    margin: 15px auto;
+    width: calc(100% - 16px);
+    padding: 10px;
+  }
+
+  #info-title { font-size: 16px; }
+  .text p { font-size: 13px; }
+
+  .matching-lists {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .matching-table {
+    margin: 0 auto;
+  }
+
+  .result-details {
+    flex-direction: column;
+  }
+
+  .text {
+    flex-direction: column;
+  }
+
+  .passages-box {
+    font-size: 13px;
+  }
+
+  #testArea, #resultArea {
+    padding: 8px;
+  }
+
+  .test-box {
+    padding: 6px;
+  }
+}
+
+/* ── СУЧАСНІ ФЛАГМАНИ (до 430px, напр. iPhone 14/15, Pixel) ── */
+@media (max-width: 430px) {
+  .navbar {
+    gap: 6px;
+    padding: 0 8px;
+  }
+
+  .menu-item span {
+    padding: 5px 8px;
+  }
+}
+
+/* ── iPHONE SE/8, МЕНШІ ЕКРАНИ (до 380px) ── */
+@media (max-width: 380px) {
+  #testFooter {
+    flex-direction: column;
+  }
+
+  #testFooter button {
+    width: 100%;
+  }
+  .navbar {
+    top: 18px;
+    height: 48px;
+    gap: 8px;
+    padding: 0 8px;
+  }
+
+  .logo img {
+    height: 28px;
+  }
+
+  .logo {
+    left: 8px;
+  }
+
+  .matching-lists {
+    gap: 8px;
+  }
+
+  .figures-row svg {
+    width: 20px;
+    height: 20px;
+  }
+  .info-block {
+    margin: 15px auto;
+    width: calc(100% - 14px);
+    padding: 10px;
+  }
+
+  #info-title { font-size: 15px; }
+
+  .text p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+}
+
+/* ── БІЛЬШІСТЬ ANDROID (до 360px, напр. Galaxy, Xiaomi) ── */
+@media (max-width: 360px) {
+  .navbar {
+    gap: 4px;
+    padding: 0 6px;
+  }
+
+  .test-box {
+    padding: 4px;
+  }
+
+  .menu-item {
+    font-size: 12px;
+  }
+
+  .menu-item span {
+    padding: 4px 6px;
+  }
+
+  .logo img {
+    height: 26px;
+  }
+
+  #info-title { font-size: 14px; }
+
+  .info-block {
+    padding: 8px;
+  }
+
+  .matching-table th,
+  .matching-table td {
+    width: 32px;
+    height: 32px;
+  }
+
+  .passage-num {
+    min-width: 36px;
+  }
+
+  .passage-num svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .result-fraction {
+    font-size: 30px;
+  }
+
+  .result-percent {
+    font-size: 16px;
+    padding: 4px 10px;
+  }
+}
+
+/* ── НАЙМЕНШІ ЕКРАНИ, ЗАПОБІЖНИК (до 320px, напр. iPhone SE 1-го покоління) ── */
+@media (max-width: 320px) {
+  .navbar {
+    padding: 0 4px;
+    gap: 2px;
+  }
+
+  .menu-item {
+    font-size: 11px;
+  }
+
+  .logo img {
+    height: 22px;
+  }
+
+  .logo {
+    left: 6px;
+  }
+
+  #testArea, #resultArea {
+    padding: 10px;
+  }
+
+  .answer-btn {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  #testFooter button {
+    font-size: 11px;
+    padding: 6px 4px;
+  }
+
+  .matching-table th,
+  .matching-table td {
+    width: 28px;
+    height: 28px;
+  }
+
+  .result-fraction {
+    font-size: 26px;
+  }
+}
