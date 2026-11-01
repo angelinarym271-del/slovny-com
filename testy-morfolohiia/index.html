@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style-morfolohiia.css">
+    <title>Тести з морфології</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/Logo Slovnycom.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/Logo Slovnycom.png">
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <div class="test-box">
+
+      <nav class="navbar">
+        <a class="logo" href="https://slovny.com/">
+          <img src="/images/Logo Slovnycom.png" alt="Slovny.com">
+        </a>
+
+        <div class="menu-item">
+          <span>Тести</span>
+          <div class="dropdown-box">
+            <a href="/testy-naholos/" class="drop-btn">Наголоси</a>
+            <a href="/testy-fonetyka/" class="drop-btn">Фонетика</a>
+            <a href="/testy-leksykolohiia/" class="drop-btn">Лексичні помилки</a>
+            <a href="/testy-frazeolohiia/" class="drop-btn">Фразеологізми</a>
+            <a href="/testy-morfolohiia/" class="drop-btn">Морфологія</a>
+            <a href="/testy-nmt/" class="drop-btn">Тести НМТ</a>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <span>Матеріали</span>
+          <div class="dropdown-box">
+            <a href="/naholosy-nmt/" class="drop-btn">Наголоси</a>
+            <a href="/leksychni-pomylky/" class="drop-btn">Лексичні помилки</a>
+            <a href="/frazeolohizmy/" class="drop-btn">Фразеологізми</a>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <a href="/pro-nas/" class="menu-item-link">Про нас</a>
+        </div>
+      </nav>
+
+      <button id="startBtn" onclick="startMorphologyTest()">Почати тест</button>
+
+      <div id="testArea" style="display: none;">
+        <div id="counter"></div>
+        <div id="task"></div>
+        <div id="question"></div>
+        <div id="answers"></div>
+        <div id="matching" style="display: none;"></div>
+
+        <button id="checkBtn" onclick="checkMatching()" style="display: none;" disabled>
+          Перевірити
+        </button>
+
+        <button id="nextBtn" onclick="nextMorphologyTask()" style="display: none;">
+          Наступне завдання
+        </button>
+      </div>
+
+      <div id="resultArea" style="display: none;"></div>
+
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h1 id="info-title">Тести з морфології</h1>
+    <div class="text">
+      <p>...</p>
+    </div>
+  </div>
+
+  <div class="my-footer">
+    <div class="politics">
+      <a href="/privacy-policy/">Політика конфіденційності</a>
+      <a href="/cookie-policy/">Політика використання файлів Cookies</a>
+      <a href="/terms/">Умови використання сайту</a>
+    </div>
+    <div class="email"><a href="mailto:korystuisia@slovny.com">korystuisia@slovny.com</a></div>
+    ©2026 Тести з української мови
+  </div>
+
+  <script type="module" src="/scripts/morfolohiia.js"></script>
+
+</body>
+</html>
